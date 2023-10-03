@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  breedbase:
+    image: breedbase/breedbase:v0.73
+    restart: always
+
+    container_name: wave_cassavabase_web
+    ports:
+      - 8089:8080
+    volumes:
+       - type: bind
+         source: /home/production/wave.cassavabase.org/sgn_local.conf
+         target: /home/production/cxgn/sgn/sgn_local.conf
+       - type: bind
+         source: /home/production/cassava
+         target: /home/production/cxgn/cassava
+       - type: bind
+         source: /export/prod/public_wave_cassavabase
+         target: /home/production/volume
+
+
